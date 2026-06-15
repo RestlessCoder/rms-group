@@ -21,6 +21,8 @@ export const StepsProvider = ({ children }: { children: ReactNode }) => {
   return (
     <StepContext.Provider value={{ step, setStep, stepData, updateStepData }}>
       {children}
+      <button onClick={() => setStep(step - 1)}>Previous Step</button>
+      <button onClick={() => setStep(step + 1)}>Next Step</button>
     </StepContext.Provider>
   );
 }

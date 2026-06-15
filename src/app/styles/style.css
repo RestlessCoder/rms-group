@@ -9675,6 +9675,11 @@ footer .secure-payment ul li .icon {
 .cal-day__month--current {
     color: #707070;
 }
+.cal-day__disabled {
+  color: rgba(0, 0, 0, 0.15);        
+  pointer-events: none; 
+  background-color: #f5f5f5;
+}
 .cal-day__day--today {
     color: #fff;
     position: relative;

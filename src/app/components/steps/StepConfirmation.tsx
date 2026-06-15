@@ -1,10 +1,40 @@
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import Slider from "react-slick";
+
+const NextArrow = (props: { className: string; style: React.CSSProperties; onClick: React.MouseEventHandler<any> }) => {
+  const { className, style, onClick } = props;
+
+  return (
+    <div className={className} style={{ ...style }} onClick={onClick}>
+      <MdKeyboardArrowLeft />
+    </div>
+  );
+}
+
+const PrevArrow = (props: { className: string; style: React.CSSProperties; onClick: React.MouseEventHandler<any> }) => {
+  const { className, style, onClick } = props;
+  return (
+    <div className={className} style={{ ...style }} onClick={onClick}>
+      <MdKeyboardArrowRight />
+    </div>
+  );
+}
 
 const StepConfirmation = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const settings = {
+        dots: true,
+        dotsClass: 'slick-dots',
+        mobileFirst: true,
+        slidesToShow: 1,
+        arrows: true,
+        prevArrow: <PrevArrow />,
+        nextArrow: <NextArrow />
+    };
 
     return (
         <>
@@ -39,8 +69,8 @@ const StepConfirmation = () => {
                                         </h2>
                                         <p>Quam diu etiam furor iste tuus nos eludet? Pellentesque habitant morbi
                                         tristique senectus et netus.</p>
-
-                                        <div className="collection-slider">
+                                        
+                                        <Slider {...settings} className="collection-slider">
                                             <div className="item">
                                                 <div className="collection-slider__content">
                                                 <div className="grid-x grid-padding-x align-center">
@@ -55,7 +85,7 @@ const StepConfirmation = () => {
                                                 </div>
                                                 </div>
                                             </div>
-                                            <div className="item">
+                                             <div className="item">
                                                 <div className="collection-slider__content">
                                                     <div className="grid-x grid-padding-x align-center">
                                                         <div className="cell small-12 medium-8 large-10">
@@ -69,8 +99,8 @@ const StepConfirmation = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
+                                        </Slider>
+                                
                                         <div className="total-payment">
                                             <p><span>Total:</span> &#163;84.00</p>
                                         </div>

@@ -1,4 +1,5 @@
 import "@/styles/style.css";
+
 import Script from 'next/script' 
 import type { Metadata } from 'next';
 import ClientLayoutWrapper from '@/context/ClientLayoutWrapper';
@@ -17,14 +18,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Script 
           src="./assets/js/jquery.min.js" 
           strategy="afterInteractive" 
-        />
-        <Script 
-          src="./assets/js/slick.min.js" 
-          strategy="afterInteractive"
-        />
-        <Script 
-          src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" 
-          strategy="afterInteractive"
         />
         <Script 
           src="./assets/js/app.js" 
